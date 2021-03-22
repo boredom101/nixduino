@@ -10,9 +10,9 @@ in stdenv.mkDerivation({
     BOARD_TAG = ${board}
     ARDUINO_LIBS = ${concatStringsSep " " libraries}
     include ${arduino-mk}/Arduino.mk
-  '';
+  ''.outPath;
   installPhase = ''
     mkdir -p $out
-    mv build-${board}/$(notdir $PWD).hex $out/build.hex
+    mv build-${board}/$(basename $PWD).hex $out/build.hex
   '';
 } // extraArgs)
