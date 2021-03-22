@@ -11,6 +11,6 @@ jobs:
       - uses: cachix/install-nix-action@v12
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - run: nix-build examples/default.nix --arg board uno
-      - run: nix-build examples/default.nix --arg board mega2560
-      - run: nix-build examples/default.nix --arg board uno
+      - run: nix-build examples/default.nix --argstr board "uno"
+      - run: nix-build examples/default.nix --argstr board "mega2560"
+      - run: nix-build examples/default.nix --argstr board "uno"
