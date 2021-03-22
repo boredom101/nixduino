@@ -5,7 +5,7 @@
 let
   extraArgs = removeAttrs args [ "name" "board" "libraries" ];
 in stdenv.mkDerivation({
-  buildInputs = [ arduino-cli ];
+  buildInputs = [ arduino-mk ];
   makefile = writeScript "makefile" ''
     BOARD_TAG = ${board}
     ARDUINO_LIBS = ${concatStringsSep " " libraries}
