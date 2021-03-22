@@ -1,12 +1,13 @@
-{ lib, stdenv, writeScript, arduino-mk }:
+{ lib, stdenv, writeScript, arduino-mk, arduino-core }:
 
 { name, board, libraries, ... }@args:
 
 let
   extraArgs = removeAttrs args [ "name" "board" "libraries" ];
 in stdenv.mkDerivation({
-  buildInputs = [ arduino-mk ];
+  buildInputs = [ arduino-mk arduino-core ];
   makefile = (writeScript "makefile" ''
+    ARDUINO_DIR = ${arduino-core}/share/arduino
     BOARD_TAG = ${board}
     ARDUINO_LIBS = ${lib.concatStringsSep " " libraries}
     include ${arduino-mk}/Arduino.mk
