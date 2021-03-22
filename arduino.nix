@@ -3,7 +3,7 @@
 { board, libraries }@args:
 
 let
-  extraArgs = removeAttrs args [ "board", "libraries" ]
+  extraArgs = removeAttrs args [ "board" "libraries" ];
 in stdenv.mkDerivation({
   buildInputs = [ arduino-cli ];
   makefile = writeScript "makefile" ''
