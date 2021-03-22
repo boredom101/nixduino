@@ -1,9 +1,9 @@
 { lib, stdenv, arduino-mk }:
 
-{ board, libraries }@args:
+{ name, board, libraries }@args:
 
 let
-  extraArgs = removeAttrs args [ "board" "libraries" ];
+  extraArgs = removeAttrs args [ "name" "board" "libraries" ];
 in stdenv.mkDerivation({
   buildInputs = [ arduino-cli ];
   makefile = writeScript "makefile" ''
@@ -15,4 +15,5 @@ in stdenv.mkDerivation({
     mkdir -p $out
     mv build-${board}/$(basename $PWD).hex $out/build.hex
   '';
+  name = "${name}-${board}"
 } // extraArgs)
