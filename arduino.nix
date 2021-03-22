@@ -14,7 +14,7 @@ in stdenv.mkDerivation({
   '').outPath;
   installPhase = ''
     mkdir -p $out
-    mv build-${board}/$(basename $PWD).hex $out/build.hex
+    mv build-${board}/$(basename $PWD)_.hex $out/build.hex
   '';
   name = "${name}-${board}";
 } // extraArgs)
