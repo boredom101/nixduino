@@ -6,9 +6,9 @@ let
   extraArgs = removeAttrs args [ "name" "board" "libraries" ];
 in stdenv.mkDerivation({
   buildInputs = [ arduino-mk ];
-  makefile = writeScript "makefile" ''
+  makefile = lib.writeScript "makefile" ''
     BOARD_TAG = ${board}
-    ARDUINO_LIBS = ${concatStringsSep " " libraries}
+    ARDUINO_LIBS = ${lib.concatStringsSep " " libraries}
     include ${arduino-mk}/Arduino.mk
   ''.outPath;
   installPhase = ''
