@@ -1,4 +1,4 @@
-{ lib, stdenv, writeScript arduino-mk }:
+{ lib, stdenv, writeScript, arduino-mk }:
 
 { name, board, libraries, ... }@args:
 
