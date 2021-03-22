@@ -15,5 +15,5 @@ in stdenv.mkDerivation({
     mkdir -p $out
     mv build-${board}/$(basename $PWD).hex $out/build.hex
   '';
-  name = "${name}-${board}"
+  name = "${name}-${board}";
 } // extraArgs)
