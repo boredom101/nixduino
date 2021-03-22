@@ -1,6 +1,6 @@
 { lib, stdenv, arduino-mk }:
 
-{ name, board, libraries }@args:
+{ name, board, libraries, ... }@args:
 
 let
   extraArgs = removeAttrs args [ "name" "board" "libraries" ];
