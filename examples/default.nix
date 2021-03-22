@@ -1,6 +1,6 @@
 { board, pkgs ? import <nixpkgs> {} }:
 
-import ../arduino.nix { inherit (pkgs) stdenv lib android-mk; } {
+import ../arduino.nix { inherit (pkgs) stdenv lib arduino-mk; } {
   name = "blink";
   board = board;
   libraries = [];
