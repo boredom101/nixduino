@@ -5,6 +5,7 @@ Look at `examples/` for how to use it.
 ## Supported Board Values:
 - `uno`
 - `leonardo`
+- `mega`
 
 ## Supported Library Values:
 - `Ethernet`

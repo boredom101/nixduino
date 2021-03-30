@@ -9,12 +9,18 @@ in stdenv.mkDerivation({
   makefile = (writeScript "makefile" ''
     ARDUINO_DIR = ${arduino-core}/share/arduino
     BOARD_TAG = ${board}
+    ${
+      if (board == "mega") then
+        "BOARD_SUB=atmega2560"
+      else
+        ""
+    }
     ARDUINO_LIBS = ${lib.concatStringsSep " " libraries}
     include ${arduino-mk}/Arduino.mk
   '').outPath;
   installPhase = ''
     mkdir -p $out
-    mv build-${board}/$(basename $PWD)_.hex $out/build.hex
+    mv build-*/*_.hex $out/build.hex
   '';
   name = "${name}-${board}";
 } // extraArgs)
