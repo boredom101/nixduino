@@ -2,4 +2,25 @@
 Build arduino sketches like any other nix derivation.
 Look at `examples/` for how to use it.
 
-(This is a proof of concept)
+## Supported Board Values:
+- `uno`
+- `leonardo`
+
+## Supported Library Values:
+- `Ethernet`
+- `EEPROM`
+- `Firmata`
+- `GSM`
+- `LiquidCrystal`
+- `SD`
+- `Servo`
+- `SPI`
+- `SoftwareSerial`
+- `Stepper`
+- `TFT`
+- `WiFi`
+- `Wire`
+
+## Notes:
+
+This is a work in progress
