@@ -4,5 +4,5 @@ import ../../arduino.nix { inherit (pkgs) stdenv lib arduino-mk writeScript ardu
   name = "blink";
   board = board;
   libraries = [];
-  src = ./.;
+  src = pkgs.lib.cleanSource ./.;
 }
