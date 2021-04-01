@@ -14,7 +14,7 @@ import ../../arduino.nix { # path to arduino.nix from this repository
   board = board; # board name, added to the name
   # in this case it is from the command line, but you can also set it here
   libraries = []; # libraries from arduino-core, valid names below
-  src = ./.; # path to the arduino files, passed to the derivation
+  src = pkgs.lib.cleanSource ./.; # path to the arduino files, passed to the derivation
 }
 ```
 

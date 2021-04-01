@@ -4,5 +4,5 @@ import ../../arduino.nix { inherit (pkgs) stdenv lib arduino-mk writeScript ardu
   name = "sweep";
   board = board;
   libraries = ["Servo"];
-  src = ./.;
+  src = pkgs.lib.cleanSource ./.;
 }
