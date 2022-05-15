@@ -19,8 +19,10 @@ in stdenv.mkDerivation({
     include ${arduino-mk}/Arduino.mk
   '').outPath;
   installPhase = ''
+    runHook preInstall
     mkdir -p $out
     mv build-*/*_.hex $out/build.hex
+    runHook postInstall
   '';
   name = "${name}-${board}";
 } // extraArgs)
