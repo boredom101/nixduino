@@ -1,6 +1,6 @@
 { board, pkgs ? import <nixpkgs> {} }:
 
-import ../../arduino.nix { inherit (pkgs) stdenv lib arduino-mk writeScript arduino-core-unwrapped; } {
+pkgs.callPackage ../../arduino.nix { } {
   name = "blink";
   board = board;
   libraries = [];
