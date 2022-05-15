@@ -8,7 +8,7 @@ Create a nix file that looks something like this:
 { board, pkgs ? import <nixpkgs> {} }:
 
 import ../../arduino.nix { # path to arduino.nix from this repository
-    inherit (pkgs) stdenv lib arduino-mk writeScript arduino-core;
+    inherit (pkgs) stdenv lib arduino-mk writeScript arduino-core-unwrapped;
   } {
   name = "blink"; # name you want for the derivation
   board = board; # board name, added to the name

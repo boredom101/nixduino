@@ -1,13 +1,13 @@
-{ lib, stdenv, writeScript, arduino-mk, arduino-core }:
+{ lib, stdenv, writeScript, arduino-mk, arduino-core-unwrapped }:
 
 { name, board, libraries, ... }@args:
 
 let
   extraArgs = removeAttrs args [ "name" "board" "libraries" ];
 in stdenv.mkDerivation({
-  buildInputs = [ arduino-mk arduino-core ];
+  buildInputs = [ arduino-mk arduino-core-unwrapped ];
   makefile = (writeScript "makefile" ''
-    ARDUINO_DIR = ${arduino-core}/share/arduino
+    ARDUINO_DIR = ${arduino-core-unwrapped}/share/arduino
     BOARD_TAG = ${board}
     ${
       if (board == "mega") then
